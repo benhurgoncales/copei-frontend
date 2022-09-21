@@ -9,3 +9,9 @@ export default {
   name: 'InspirePage'
 }
 </script>
+
+<a  class="buttons" href="/selecoes" >
+  <b-button type="is-primary" expanded>
+    hoje
+  </b-button>
+</a>

@@ -247,10 +247,8 @@ export default {
               nome: "Coreia do Sul",
               bandeira: "https://maestrovirtuale.com/wp-content/uploads/2019/10/640px-Flag_of_South_Korea_1945%E2%80%931948.svg_-1.png"
             }
-
           ]
         }
-
       ]
     }
   },

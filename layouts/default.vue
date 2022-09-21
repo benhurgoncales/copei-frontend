@@ -23,6 +23,9 @@
             <b-navbar-item tag="router-link" :to="{ path: '/fig' }">
                 Figurinha
             </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/lendarias' }">
+                Lendarias
+            </b-navbar-item>
         </template>
 
         <template #end>
@@ -34,6 +37,11 @@
                     <a class="button is-light" href="/login">
                         Login
                     </a>
+                    <a class="button is-light" href="/usuario">
+                        Meu Login
+                    </a>
+
+                    
                 </div>
             </b-navbar-item>
         </template>

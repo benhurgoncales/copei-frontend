@@ -10,7 +10,7 @@
         <!-- ESTADIO 1 -->
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+            <img src="../assets/AL BAYT .png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded> Al bayt Satadium </b-button>
@@ -20,7 +20,7 @@
         <!-- ESTADIO 2 -->
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg"/>
+            <img src="../assets/QATAR FOUNDATION .png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded>Qatar</b-button>
@@ -32,7 +32,7 @@
       <div class="column is-3">
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+            <img src="../assets/KHALIFA .png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded
@@ -43,7 +43,7 @@
 
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+            <img src="../assets/AL WAKRAH .png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded>Stadium 974</b-button>
@@ -55,7 +55,7 @@
 
       <div class="column is-3">
         <figure class="image is-150x150">
-          <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+          <img src="../assets/AL THUMAMA .png" />
         </figure>
         <div class="buttons">
           <b-button type="is-primary" expanded>Qatar</b-button>
@@ -74,7 +74,7 @@
       <div class="column is-3">
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+            <img src="../assets/RAS ABU  ABOUD.png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded>Al Thumama</b-button>
@@ -83,7 +83,7 @@
 
         <div class="estadio mb-5">
           <figure class="image is-150x150">
-            <img src="https://www.cimentoitambe.com.br/wp-content/uploads/2021/11/Al-Janoub.jpg" />
+            <img src="../assets/AL RAYYAN .png" />
           </figure>
           <div class="buttons">
             <b-button type="is-primary" expanded>Al Janoub</b-button>

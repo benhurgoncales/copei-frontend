@@ -6,7 +6,7 @@
    <div class="columns">
       <div class="column is-3">
         <figure class="image is-150x150">
-          <img src="https://bulma.io/images/placeholders/128x128.png" />
+          <img src="https://www.rbsdirect.com.br/imagesrc/35730996.jpg?w=700&rv=2-10-05&safari" />
         </figure>
         <div class="box has-text-centered">
           NOME DA FIGURINHA
@@ -357,3 +357,21 @@
   </section>
 </template>
 
+<script>
+  export default {
+    data() {
+      return {
+        vendedor: {
+          nomevendedor: "Ben-Hur",
+          fotovendedor: "https://bulma.io/images/placeholders/96x96.png",
+          descricao: "../assets/time.png",
+          qtdfigurinha: "Quantidade de figurinhas: XX",
+          precofigurinha: "Preço: R$ XX,XX",
+          trocas: "Aceita trocas: Sim/Não"
+        },
+      }
+    },
+    methods: {
+    }
+  }
+  </script>
