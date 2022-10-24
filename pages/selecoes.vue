@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title">Brasil</h1>
+    <h1 class="title">{{selecao.pais}}</h1>
     <div class="columns ">
       <!-- COLUNA 1-->
 
@@ -10,7 +10,7 @@
           <!--COLUNA BANDEIRA -->
           <div class="column">
             <figure class="image is-150x150">
-              <img src="https://static.todamateria.com.br/upload/ba/nd/bandeiradobrasil-2-cke.jpg" />
+              <img :src="selecao.fotoBandeira" />
             </figure>
           </div>
 
@@ -18,7 +18,7 @@
 
           <div class="column">
             <figure class="image is-150x150">
-              <img src="../assets/time.png" />
+              <img :src="selecao.fotoTime" />
             </figure>
           </div>
         </div>
@@ -143,6 +143,10 @@
 
 <script>
 export default {
+  async asyncData({ $axios, query }) {
+    const selecao = await $axios.$get('/api/selecoes/' + query.id + '/')
+    return { selecao }
+  },
   data() {
     return {
       time: {

@@ -22,16 +22,16 @@
       <div class="columns is-multiline">
         <div v-for ="grupo in grupos" :key="grupo.nome"   class="column is-3">
           <div>
-              <h2 class="title is-2 has-text-centered">{{grupo.nomeGrupo}}</h2>
+              <h2 class="title is-2 has-text-centered">Grupo {{grupo.nomeGrupo}}</h2>
 
 
               <a div v-for="selecao in grupo.selecoes" :key="selecao.nome"  class="buttons" href="/selecoes" >
-                <b-button type="is-primary" expanded>
+                <router-link :to="{ path: '/selecoes', query: {id: selecao.id} }" type="is-primary" expanded>
                   <img style="height: 30px;"
                     :src="selecao.fotoBandeira"
                     alt="">
                   {{selecao.pais}}
-                </b-button>
+                </router-link>
               </a>
             </div>
         </div>
