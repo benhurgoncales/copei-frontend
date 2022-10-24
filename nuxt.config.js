@@ -41,7 +41,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/buefy
     'nuxt-buefy',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    baseURL: 'https://copei-backend.ben-hurde.repl.co/', // Used as fallback if no runtime config is provided
+  },  
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -22,15 +22,15 @@
       <div class="columns is-multiline">
         <div v-for ="grupo in grupos" :key="grupo.nome"   class="column is-3">
           <div>
-              <h2 class="title is-2 has-text-centered">{{grupo.nome}}</h2>
+              <h2 class="title is-2 has-text-centered">{{grupo.nomeGrupo}}</h2>
 
 
               <a div v-for="selecao in grupo.selecoes" :key="selecao.nome"  class="buttons" href="/selecoes" >
                 <b-button type="is-primary" expanded>
                   <img style="height: 30px;"
-                    :src="selecao.bandeira"
+                    :src="selecao.fotoBandeira"
                     alt="">
-                  {{selecao.nome}}
+                  {{selecao.pais}}
                 </b-button>
               </a>
             </div>
@@ -42,9 +42,14 @@
 
 <script>
 export default {
+  
+  async asyncData({ $axios }) {
+    const grupos = await $axios.$get('/api/grupos/')
+    return { grupos }
+  },
   data() {
     return {
-      grupos: [
+      gruposx: [
         {
           nome: "Grupo A",
           selecoes: [
