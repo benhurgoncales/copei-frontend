@@ -32,22 +32,24 @@
                 <img :src="figurinha.fotoFig" />
               </figure>
               <div class="buttons">
-                <b-button type="is-primary" expanded>
+                <router-link  :to="{ path: '/fig', query: {id: figurinha.id} }" type="is-primary" expanded> 
                   {{figurinha.nomeFig}}
-                </b-button>
+                 </router-link>
               </div>
             </div>    
           <!-- PRIMEIRA COLUNA -->
           <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id" v-if = "figurinha.jogador && figurinha.num <10" >
             <!-- Atleta 1 -->
           
-            
+          
             <div class="atleta " >
               <figure class="image is-150x150">
                 <img :src="figurinha.fotoFig" />
               </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> {{figurinha.nomeFig}} </b-button>
+              <div class="buttons">    
+                 
+                <router-link  :to="{ path: '/fig', query: {id: figurinha.id} }" type="is-primary" expanded> {{figurinha.nomeFig}} </router-link>    
+                 
               </div>
             </div>  
           </div>
@@ -67,9 +69,9 @@
                 <img :src="figurinha.fotoFig" />
               </figure>
               <div class="buttons">
-                <b-button type="is-primary" expanded>
+                <router-link  :to="{ path: '/fig', query: {id: figurinha.id} }" type="is-primary" expanded> 
                   {{figurinha.nomeFig}}
-                </b-button>
+                </router-link>
               </div>
             </div>         
         </div>

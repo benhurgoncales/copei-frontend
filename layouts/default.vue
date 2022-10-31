@@ -17,12 +17,6 @@
             <b-navbar-item tag="router-link" :to="{ path: '/estadios' }">
                 Estadio
             </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/selecoes' }">
-                Selecoes
-            </b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/fig' }">
-                Figurinha
-            </b-navbar-item>
             <b-navbar-item tag="router-link" :to="{ path: '/lendarias' }">
                 Lendarias
             </b-navbar-item>

@@ -6,17 +6,15 @@
    <div class="columns">
       <div class="column is-3">
         <figure class="image is-150x150">
-          <img src="https://www.rbsdirect.com.br/imagesrc/35730996.jpg?w=700&rv=2-10-05&safari" />
+          <img :src="figurinha.fotoFig" />
         </figure>
-        <div class="box has-text-centered">
-          NOME DA FIGURINHA
-        </div>
+       
       </div>
       <div class="column is-9">
-        <h2 class="title is-2 has-text-centered">NOME DA FIGURINHA | NUM 00</h2>
+        <h2 class="title is-2 has-text-centered"> {{figurinha.nomeFig}} |  {{figurinha.numero}}</h2>
         <p><strong>Descrição da figurinha:</strong></p>
         <br>
-        <p>NUM 00 | JOGADOR ou ESCUDO ou TIME ou ESPECIAL ou ESTADIO</p>
+        <p> {{figurinha.numero}} | JOGADOR ou ESCUDO ou TIME ou ESPECIAL ou ESTADIO</p>
         <br>
         <p> <strong>Número de figurinhas disponíveis/cadastradas no site:</strong> </p>
         <br>
@@ -359,9 +357,9 @@
 
 <script>
   export default {
-     async asyncData({ $axios }) {
-    const figurinhas = await $axios.$get('/api/figurinhas/')
-    return { figurinhas }
+     async asyncData({ $axios , query }) {
+    const figurinha = await $axios.$get('/api/figurinhas/'+ query.id + "/")
+    return { figurinha }
   },
     data() {
       return {
