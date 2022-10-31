@@ -1,13 +1,12 @@
 <template>
-  <div class="container is-fluid">
+  <div class="container is-fluid" style="padding:0px;">
 
-    <b-navbar shadow="true">
+    <b-navbar style="border-bottom:0.5px solid #555;">
         <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img style="max-height:70px"
                     src="https://github.com/benhurgoncales/copei-frontend/blob/master/assets/copeilogo.png?raw=true"
-                    alt="Logo"
-                >
+                    alt="Logo">
             </b-navbar-item>
         </template>
         <template #start>
@@ -46,10 +45,10 @@
 
     <Nuxt/>
 
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Nuxt exemplo</strong> by Robson Luz. 
+    <footer class="footer" style="background-color:  #862633;">
+      <div class="content has-text-centered" >
+        <p style="color: white">
+          <strong>@Copei</strong> by Ben-Hur de Oliveira, Jose Elias, Victor Callegim. 
           <a target="_blank" href="https://fae.edu">FAE Centro Universitário</a>
         </p>
       </div>

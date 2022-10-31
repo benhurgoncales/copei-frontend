@@ -1,14 +1,7 @@
 <template>
 
   <div>
-    <b-field>
-            <b-input placeholder="Pesquise sua Figurinha"
-                type="search"
-                icon="magnify"
-                icon-clickable
-                @icon-click="searchIconClick">
-            </b-input>
-        </b-field>
+
 
     <!-- carousel com imagens -->
 
@@ -32,15 +25,18 @@
           <div>
               <h2 class="title is-2 has-text-centered">Grupo {{grupo.nomeGrupo}}</h2>
 
-
-              <a div v-for="selecao in grupo.selecoes" :key="selecao.nome"  class="buttons" href="/selecoes" >
-                <router-link :to="{ path: '/selecoes', query: {id: selecao.id} }" type="is-primary" expanded>
+              
+              <a div v-for="selecao in grupo.selecoes" :key="selecao.nome"  class="buttons" href="/selecoes"  style="border: 1px solid black; padding: 10px; background-color: #862633; border-radius: 10px" >
+                         
+                <router-link :to="{ path: '/selecoes', query: {id: selecao.id}}"  >
                   <img style="height: 30px;"
                     :src="selecao.fotoBandeira"
                     alt="">
                   {{selecao.pais}}
-                </router-link>
+                </router-link>  
+              
               </a>
+           
             </div>
         </div>
       </div>     

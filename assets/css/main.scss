@@ -85,10 +85,11 @@ $colors: mergeColorMaps(
 );
 
 // Links
-$link: $primary;
-$link-invert: $primary-invert;
+$link: white;
+$link-invert: yellow;
 $link-focus-border: $primary;
 
+$scheme-main: rgb(253, 255, 222);
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
