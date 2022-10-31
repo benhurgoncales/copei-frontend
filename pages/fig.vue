@@ -359,6 +359,10 @@
 
 <script>
   export default {
+     async asyncData({ $axios }) {
+    const figurinhas = await $axios.$get('/api/figurinhas/')
+    return { figurinhas }
+  },
     data() {
       return {
         vendedor: {

@@ -26,6 +26,9 @@
             <b-navbar-item tag="router-link" :to="{ path: '/lendarias' }">
                 Lendarias
             </b-navbar-item>
+
+           
+        </b-field>
         </template>
 
         <template #end>
@@ -40,10 +43,10 @@
                     <a class="button is-light" href="/usuario">
                         Meu Login
                     </a>
-
-                    
                 </div>
+             
             </b-navbar-item>
+          
         </template>
     </b-navbar>
 

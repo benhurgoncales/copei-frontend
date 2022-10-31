@@ -1,4 +1,5 @@
 <template>
+ 
   <section class="section">
     <h1 class="title">{{selecao.pais}}</h1>
     <div class="columns ">
@@ -24,96 +25,31 @@
         </div>
 
         <!-- SEPARACAO EM 4 -->
-        <div class="columns mt-5">
+        <div class="columns  is-multiline">
+
+          <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id" v-if = "figurinha.escudo" >
+              <figure class="image is-150x150">
+                <img :src="figurinha.fotoFig" />
+              </figure>
+              <div class="buttons">
+                <b-button type="is-primary" expanded>
+                  {{figurinha.nomeFig}}
+                </b-button>
+              </div>
+            </div>    
           <!-- PRIMEIRA COLUNA -->
-          <div class="column">
+          <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id" v-if = "figurinha.jogador && figurinha.num <10" >
             <!-- Atleta 1 -->
-            <div class="atleta mb-6">
+          
+            
+            <div class="atleta " >
               <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
+                <img :src="figurinha.fotoFig" />
               </figure>
               <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
+                <b-button type="is-primary" expanded> {{figurinha.nomeFig}} </b-button>
               </div>
-            </div>
-
-            <!-- Atleta 2 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-          </div>
-
-          <!-- SEGUNDA COLUNA -->
-          <div class="column">
-            <!-- Atleta 1 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-
-            <!-- Atleta 2 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-          </div>
-
-          <!-- TERCEIRA COLUNA -->
-          <div class="column">
-            <!-- Atleta 1 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-
-            <!-- Atleta 2 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-          </div>
-          <!-- QUARTA COLUNA -->
-          <div class="column">
-            <!-- Atleta 1 -->
-            <div class="atleta mb-6">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Casemiro </b-button>
-              </div>
-            </div>
-
-            <!-- Atleta 2 -->
-            <div class="atleta mb-5">
-              <figure class="image is-150x150">
-                <img src="../assets/atleta.png" />
-              </figure>
-              <div class="buttons">
-                <b-button type="is-primary" expanded> Alisson </b-button>
-              </div>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
@@ -124,17 +60,18 @@
         <div class="columns is-multiline">
       
             <!-- ATLETAS B -->
-            <div class="atleta mb-5 column is-3" v-for="jogador in jogadoresDireita" :key="jogador.nomejogador"  >
+               
+          
+            <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id" v-if = "figurinha.jogador && figurinha.num >= 10">
               <figure class="image is-150x150">
-                <img :src="jogador.fotojogador" />
+                <img :src="figurinha.fotoFig" />
               </figure>
               <div class="buttons">
                 <b-button type="is-primary" expanded>
-                  {{jogador.nomejogador}}
+                  {{figurinha.nomeFig}}
                 </b-button>
               </div>
-            </div>
-          
+            </div>         
         </div>
       </div>
     </div>
