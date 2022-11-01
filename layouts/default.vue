@@ -1,5 +1,5 @@
 <template>
-  <div class="container is-fluid" style="padding:0px;">
+  <div class="container" style="padding:0px;">
 
     <b-navbar style="border-bottom:0.5px solid #555;">
         <template #brand>
