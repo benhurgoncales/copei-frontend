@@ -26,27 +26,67 @@ export default {
     '@/assets/css/main.scss'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/firebase', mode: 'client' },
+    { src: '~/plugins/axios' }
   ],
+
+  router: {
+    middleware: [
+        //'get-current-user',
+        'check-auth'
+    ]
+  },    
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/buefy
     'nuxt-buefy',
+    'nuxt-fontawesome',
     '@nuxtjs/axios',
   ],
 
-  axios: {
-    baseURL: 'https://copei-backend.ben-hurde.repl.co/', // Used as fallback if no runtime config is provided
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+  },
+
+  buefy: {
+    materialDesignIcons: false,
+    defaultIconPack: 'fas',
+    defaultIconComponent: 'font-awesome-icon'
   },  
+
+  proxy: {
+    '/api': {
+        target: 'https://COPEI-BACKEND.ben-hurde.repl.co',
+        changeOrigin: true,
+        ws: true,
+        credentials: true,
+        xcsrfCookieName: "csrftoken",
+        xcsrfHeaderName: "X-CSRFToken"          
+    },
+  },
+
+
+ axios: {
+      proxy: true,
+      prefix: '/api',
+      //baseURL: 'http://localhost:8000/api/',
+      progress: true,
+      credentials: true,
+      debug: true,
+      xcsrfCookieName: "csrftoken",
+      xcsrfHeaderName: "X-CSRFToken"      
+  }, 
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

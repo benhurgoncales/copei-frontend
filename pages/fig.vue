@@ -358,7 +358,7 @@
 <script>
   export default {
      async asyncData({ $axios , query }) {
-    const figurinha = await $axios.$get('/api/figurinhas/'+ query.id + "/")
+    const figurinha = await $axios.$get('/figurinhas/'+ query.id + "/")
     return { figurinha }
   },
     data() {

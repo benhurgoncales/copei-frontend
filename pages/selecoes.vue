@@ -77,7 +77,7 @@
 <script>
 export default {
   async asyncData({ $axios, query }) {
-    const selecao = await $axios.$get("/api/selecoes/" + query.id + "/");
+    const selecao = await $axios.$get("/selecoes/" + query.id + "/");
     return { selecao };
   }
 };
