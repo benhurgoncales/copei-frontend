@@ -24,29 +24,14 @@
         <br />
         <form class="box">
           <div class="title">Meu Cadastro</div>
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-              <input
-                class="input"
-                type="email"
-                placeholder="johnsmith@example.com"
-              />
-            </div>
+          <div class="info mb-2">
+            <div><strong>Email</strong></div>
+            <div>usuario@gmail.com</div>
           </div>
 
-          <div class="field">
-            <label class="label">Senha</label>
-            <div class="control">
-              <input class="input" type="password" placeholder="********" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label class="label">Telefone</label>
-            <div class="control">
-              <input class="input" type="tel" placeholder="(DDD) 12345-6789" />
-            </div>
+          <div class="info mb-2">
+            <div><strong>Telefone</strong></div>
+            <div>(41) 1234-5432</div>
           </div>
 
           <div class="field">
@@ -111,7 +96,7 @@
           <p><strong>Selecione a seleção</strong></p>
           <br>
           <div class="select is-primary">
-            <select>
+            <select >
               <option>Brasil</option>
               <option>Argentina</option>
               <option>Alemanha</option>
@@ -123,23 +108,19 @@
           <p><strong>Selecione o número da figurinha</strong></p>
           <br>
           <div class="select is-primary">
-            <select>
-              <option>BRA-1</option>
-              <option>BRA-2</option>
-              <option>BRA-3</option>
-              <option>BRA-4</option>
-              <option>BRA-5</option>
-              <option>BRA-6</option>
+            <select v-model='cadastroFig.figurinha'>
+              <option v-for="figurinha in figurinhas" :key="figurinha.id" :value="figurinha.id">{{figurinha.numero}}</option>
+            
             </select>
           </div>
           <br /><br />
           <p><strong>Selecione as condições da sua figurinha</strong></p>
           <br>
           <div class="select is-primary">
-            <select>
-              <option>Nova</option>
-              <option>Leves amassados</option>
-              <option>Amassada</option>
+            <select v-model='cadastroFig.condicao'>
+              <option value="Nova">Nova</option>
+              <option value="Leves Amassados">Leves amassados</option>
+              <option value="Amassada">Amassada</option>
             </select>
           </div>
           <br /><br />
@@ -147,23 +128,73 @@
             <p><strong>Aceita trocas?</strong></p>
             <br>
             <label class="radio">
-                <input type="radio" name="answer">
+                <input v-model='cadastroFig.aceitaTroca' :value="true"  type="radio" name="answer">
                 Sim
             </label>
             <label class="radio">
-                <input type="radio" name="answer">
+                <input v-model='cadastroFig.aceitaTroca' :value="false" type="radio" name="answer">
                 Não
             </label>
           </div>
+          <br/>
+          <strong>Valor da figurinha em R$</strong>
+          <br>
+          <input v-model='cadastroFig.preco' class="input" type="text" placeholder="R$ 00,00" />
           <br /><br />
-          <p><strong>Valor da figurinha em R$</strong></p>
-          <br />
-          <input class="input" type="text" placeholder="R$ 00,00" />
-          <br /><br />
-          <button class="button is-primary">Adicionar figurinha</button>
+          <button @click="cadastrar()" class="button is-primary">Adicionar figurinha</button>
         </form>
       </div>
     </div>
     <br />
   </section>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            cadastroFig: {
+                condicao: '',
+                aceitaTroca: false,
+                preco: null,
+                figurinha: null,
+            },
+            currentUser: null,
+            
+        }
+    },
+    async asyncData({ $axios }) {
+    const figurinhas = await $axios.$get('/figurinhas/')
+    return { figurinhas }
+  },
+  created() {
+      var self = this;
+
+    
+      //Busca o usuario logado para já preencher o e-mail na tela de cadastro
+      this.$axios.get('currentuser/').then((response) => {
+        console.log(response);
+        self.currentUser = response.data;
+       
+      })        
+    },
+  methods: {
+        cadastrar() {
+            var self = this;
+            if (this.currentUser == null) {
+                self.$buefy.dialog.alert('Você ainda não está logado no site. Favor fazer o login com o seu gmail no menu Entrar/Cadastrar!');
+            } else {
+
+                //Chama a api para criar o usuário
+                this.$axios.post('cadastro-fig-create/', this.cadastroFig).then((response) => {
+                    console.log(response);
+                    //Mostra a mensagem de sucesso
+                    self.$buefy.dialog.alert('Cadastro realizado com sucesso!')
+                    //Navega para a home após o cadastro, pode ser alterado para qualquer rota
+                    self.$router.replace({ path: '/usuario', force: true });
+                })
+            }
+        }
+    }
+  }
+</script>

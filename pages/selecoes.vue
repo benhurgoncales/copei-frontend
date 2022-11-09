@@ -10,7 +10,7 @@
         <div class="columns">
           <!--COLUNA BANDEIRA -->
           <div class="column">
-            <figure class="image is-150x150">
+            <figure class="image" >
               <img :src="selecao.fotoBandeira" />
             </figure>
           </div>
@@ -18,9 +18,11 @@
           <!-- COLUNA TIME-->
 
           <div class="column">
-            <figure class="image is-150x150">
+            
+            <figure class="image" >
               <img :src="selecao.fotoTime" />
             </figure>
+      
           </div>
         </div>
 
@@ -32,9 +34,8 @@
                 <img :src="figurinha.fotoFig" />
               </figure>
             </router-link>
-
-
           </div>
+
           <!-- PRIMEIRA COLUNA -->
           <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id"
             v-if="figurinha.jogador && figurinha.num < 10">
@@ -57,7 +58,7 @@
         <div class="columns is-multiline">
           <!-- ATLETAS B -->
 
-          <div class="column is-3" v-for="figurinha in selecao.figurinhas" :key="figurinha.id"
+          <div class="column is-3 " v-for="figurinha in selecao.figurinhas" :key="figurinha.id"
             v-if="figurinha.jogador && figurinha.num >= 10">
 
             <router-link :to="{ path: '/fig', query: { id: figurinha.id } }" type="is-primary" expanded>
@@ -67,7 +68,7 @@
             </router-link>
           </div>
         </div>
-        
+      
       </div>
       
     </div>
