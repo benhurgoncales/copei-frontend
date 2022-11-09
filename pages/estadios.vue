@@ -2,13 +2,14 @@
   <section>
     <!-- TITULO -->
     <h1 class="title is-1 mb-5 mt-5">Estadios</h1>
+    
 
     <!-- COLUNAS -->
     <div class="columns">
       <!-- COLUNAS 1-->
       <div class="column is-3">
         <!-- ESTADIO 1 -->
-        <div class="estadio mb-5">
+        <div class="estadio mb-5" >
           <figure class="image is-150x150">
             <img src="../assets/AL BAYT .png" />
           </figure>
@@ -94,4 +95,18 @@
 
   </section>
 </template>
+
+<script>
+export default {
+  
+  async asyncData({ $axios }) {
+    const grupos = await $axios.$get('/estadios/')
+    return { estadios }
+  },
+ 
+}
+
+
+</script>
+
 
