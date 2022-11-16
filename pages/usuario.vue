@@ -8,10 +8,7 @@
             <div class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img
-                    src="https://bulma.io/images/placeholders/96x96.png"
-                    alt="Placeholder image"
-                  />
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
                 </figure>
               </div>
               <div class="media-content">
@@ -88,6 +85,28 @@
 
           <button class="button is-primary">Editar</button>
         </form>
+
+        <form class="box">
+          <div class="title">Figurinhas Cadastradas</div>
+          <div class="card mb-2" v-for="cad in cadFigurinhas" :key="cad.id">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img :src="cad.figurinha.fotoFig" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4"> {{cad.figurinha.numero}} | {{cad.figurinha.nomeFig}} | R$ {{cad.preco}} <button class="button is-primary ml-6">Excluir</button></p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          
+         
+        </form>
+
       </div>
       <div class="column is-6">
         <br />
@@ -96,7 +115,7 @@
           <p><strong>Selecione a seleção</strong></p>
           <br>
           <div class="select is-primary">
-            <select >
+            <select>
               <option>Brasil</option>
               <option>Argentina</option>
               <option>Alemanha</option>
@@ -109,8 +128,9 @@
           <br>
           <div class="select is-primary">
             <select v-model='cadastroFig.figurinha'>
-              <option v-for="figurinha in figurinhas" :key="figurinha.id" :value="figurinha.id">{{figurinha.numero}}</option>
-            
+              <option v-for="figurinha in figurinhas" :key="figurinha.id" :value="figurinha.id">{{ figurinha.numero }}
+              </option>
+
             </select>
           </div>
           <br /><br />
@@ -128,15 +148,15 @@
             <p><strong>Aceita trocas?</strong></p>
             <br>
             <label class="radio">
-                <input v-model='cadastroFig.aceitaTroca' :value="true"  type="radio" name="answer">
-                Sim
+              <input v-model='cadastroFig.aceitaTroca' :value="true" type="radio" name="answer">
+              Sim
             </label>
             <label class="radio">
-                <input v-model='cadastroFig.aceitaTroca' :value="false" type="radio" name="answer">
-                Não
+              <input v-model='cadastroFig.aceitaTroca' :value="false" type="radio" name="answer">
+              Não
             </label>
           </div>
-          <br/>
+          <br />
           <strong>Valor da figurinha em R$</strong>
           <br>
           <input v-model='cadastroFig.preco' class="input" type="text" placeholder="R$ 00,00" />
@@ -151,50 +171,51 @@
 
 <script>
 export default {
-    data() {
-        return {
-            cadastroFig: {
-                condicao: '',
-                aceitaTroca: false,
-                preco: null,
-                figurinha: null,
-            },
-            currentUser: null,
-            
-        }
-    },
-    async asyncData({ $axios }) {
+  data() {
+    return {
+      cadastroFig: {
+        condicao: '',
+        aceitaTroca: false,
+        preco: null,
+        figurinha: null,
+      },
+      currentUser: null,
+
+    }
+  },
+  async asyncData({ $axios }) {
     const figurinhas = await $axios.$get('/figurinhas/')
-    return { figurinhas }
+    const cadFigurinhas = await $axios.$get('/cadastro-fig/')
+    return { figurinhas, cadFigurinhas}
   },
   created() {
-      var self = this;
+    var self = this;
 
-    
-      //Busca o usuario logado para já preencher o e-mail na tela de cadastro
-      this.$axios.get('currentuser/').then((response) => {
-        console.log(response);
-        self.currentUser = response.data;
-       
-      })        
-    },
+
+    //Busca o usuario logado para já preencher o e-mail na tela de cadastro
+    this.$axios.get('currentuser/').then((response) => {
+      console.log(response);
+      self.currentUser = response.data;
+
+    })
+  },
   methods: {
-        cadastrar() {
-            var self = this;
-            if (this.currentUser == null) {
-                self.$buefy.dialog.alert('Você ainda não está logado no site. Favor fazer o login com o seu gmail no menu Entrar/Cadastrar!');
-            } else {
+    cadastrar() {
+      var self = this;
+      if (this.currentUser == null) {
+        self.$buefy.dialog.alert('Você ainda não está logado no site. Favor fazer o login com o seu gmail no menu Entrar/Cadastrar!');
+      } else {
 
-                //Chama a api para criar o usuário
-                this.$axios.post('cadastro-fig-create/', this.cadastroFig).then((response) => {
-                    console.log(response);
-                    //Mostra a mensagem de sucesso
-                    self.$buefy.dialog.alert('Cadastro realizado com sucesso!')
-                    //Navega para a home após o cadastro, pode ser alterado para qualquer rota
-                    self.$router.replace({ path: '/usuario', force: true });
-                })
-            }
-        }
+        //Chama a api para criar o usuário
+        this.$axios.post('cadastro-fig-create/', this.cadastroFig).then((response) => {
+          console.log(response);
+          //Mostra a mensagem de sucesso
+          self.$buefy.dialog.alert('Cadastro realizado com sucesso!')
+          //Navega para a home após o cadastro, pode ser alterado para qualquer rota
+          self.$router.replace({ path: '/usuario', force: true });
+        })
+      }
     }
   }
+}
 </script>

@@ -26,11 +26,11 @@
   
            <template #end>
               <template v-if="currentUser">
+                <b-navbar-item tag="div">
+                <div class="buttons">
                   <b-navbar-item tag="div">
                       {{currentUser.user}}
                   </b-navbar-item>  
-                  <b-navbar-item tag="div">
-                      <div class="buttons">
                         <b-navbar-item tag="router-link" :to="{ path: '/usuario' }">
                             Adicionar Figurinha
                         </b-navbar-item>                       
