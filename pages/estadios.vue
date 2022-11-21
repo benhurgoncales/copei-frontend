@@ -10,12 +10,11 @@
       <div v-for = 'figurinha in figurinhas' :key="figurinha.id" class="column is-3">
         <!-- ESTADIO 1 -->
         <div class="estadio mb-5" >
+          <router-link :to="{ path: '/fig', query: { id: figurinha.id } }" type="is-primary" expanded>
           <figure class="image is-150x150">
             <img :src="figurinha.fotoFig" />
           </figure>
-          <router-link :to="{ path: '/fig', query: { id: figurinha.id } }" type="is-primary" expanded>
-            <b-button type="is-primary" expanded> {{figurinha.nomeFig}} </b-button>
-          </router-link>
+        </router-link>
         </div>
       </div>
 

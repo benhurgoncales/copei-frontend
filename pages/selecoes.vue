@@ -1,6 +1,6 @@
 
 <template>
-  <section class="section" >
+  <section class="section">
     <h1 class="title">{{ selecao.pais }}</h1>
     <div class="columns">
       <!-- COLUNA 1-->
@@ -10,7 +10,7 @@
         <div class="columns">
           <!--COLUNA BANDEIRA -->
           <div class="column">
-            <figure class="image" >
+            <figure class="image">
               <img :src="selecao.fotoBandeira" />
             </figure>
           </div>
@@ -18,11 +18,12 @@
           <!-- COLUNA TIME-->
 
           <div class="column">
-            
-            <figure class="image" >
+        
+            <figure class="image">
               <img :src="selecao.fotoTime" />
             </figure>
-      
+         
+
           </div>
         </div>
 
@@ -46,6 +47,7 @@
                 <figure class="image is-150x150">
                   <img :src="figurinha.fotoFig" />
                 </figure>
+
               </router-link>
 
             </div>
@@ -65,12 +67,15 @@
               <figure class="image is-150x150 mb-3">
                 <img :src="figurinha.fotoFig" />
               </figure>
-            </router-link>
+            </router-link>          
           </div>
+
         </div>
-      
+
+
+
       </div>
-      
+
     </div>
   </section>
 </template>

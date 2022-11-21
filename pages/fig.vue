@@ -14,7 +14,7 @@
         <h2 class="title is-2 has-text-centered"> {{figurinha.nomeFig}} |  {{figurinha.numero}}</h2>
         <p><strong>Descrição da figurinha:</strong></p>
         <br>
-        <p> {{figurinha.numero}} | JOGADOR ou ESCUDO ou TIME ou ESPECIAL ou ESTADIO</p>
+        <p> {{figurinha.numero}} | {{figurinha.nomeFig}}</p>
         <br>
         <p> <strong>Número de figurinhas disponíveis/cadastradas no site:</strong> </p>
         <br>

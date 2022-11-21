@@ -16,6 +16,12 @@
               <b-navbar-item tag="router-link" :to="{ path: '/estadios' }">
                   Estadio
               </b-navbar-item>
+              <b-navbar-item tag="router-link" :to="{ path: '/pagina1' }">
+                  Primeira Pagina
+              </b-navbar-item>
+              <b-navbar-item tag="router-link" :to="{ path: '/campeoes' }">
+                  Museu dos Campeoes
+              </b-navbar-item>
               <b-navbar-item tag="router-link" :to="{ path: '/lendarias' }">
                   Lendarias
               </b-navbar-item>

@@ -25,7 +25,7 @@
         <div v-for ="grupo in grupos" :key="grupo.nome"   class="column is-3">
           <div>
               <h2 class="title is-2 has-text-centered">Grupo {{grupo.nomeGrupo}}</h2>     
-                <router-link class="buttons" style="border: 1px solid black; padding: 10px; background-color: #862633; border-radius: 10px" v-for="selecao in grupo.selecoes" :key="selecao.id" :to="{ path: '/selecoes', query: {id: selecao.id}}"  >
+                <router-link class="buttons" style=" padding: 10px; background-color: #862633; border-radius: 10px" v-for="selecao in grupo.selecoes" :key="selecao.id" :to="{ path: '/selecoes', query: {id: selecao.id}}"  >
                   <img class="bandeira mr-3" style="height: 30px;"
                     :src="selecao.fotoBandeira"
                     alt="">
