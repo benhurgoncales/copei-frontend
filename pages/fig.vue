@@ -12,17 +12,20 @@
       </div>
       <div class="column is-9">
         <h2 class="title is-2 has-text-centered"> {{figurinha.nomeFig}} |  {{figurinha.numero}}</h2>
-        <p><strong>Descrição da figurinha:</strong></p>
+        <p><strong>Numero Figurinha</strong></p>
         <br>
-        <p> {{figurinha.numero}} | {{figurinha.nomeFig}}</p>
+        <p> {{figurinha.numero}}</p>
         <br>
-        <p> <strong>Número de figurinhas disponíveis/cadastradas no site:</strong> </p>
+        <p> <strong>Nome: </strong> </p>
         <br>
-        <p>XXX</p>
+        <p>{{figurinha.nomeFig}}</p>
         <br>
-        <p> <strong>Preço médio das figurinhas cadastradas no site:</strong> </p>
+        <p> <strong>Categoria</strong> </p>
         <br>
-        <p> R$ XXX,XX </p>
+        <p> <span v-if="figurinha.jogador">Jogador</span>
+                  <span v-else-if="figurinha.lendaria"> Lendaria </span> 
+                  <span v-else-if="figurinha.especial"> Especial </span>
+                  <span v-else-if="figurinha.escudo"> Escudo </span></p>
       </div>
     </div>
     <h3 class="title is-3">Vendedores: </h3>
