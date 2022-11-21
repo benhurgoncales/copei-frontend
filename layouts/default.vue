@@ -91,8 +91,12 @@
             self.$axios.get('currentusuario/').then((responseUsuario) => {
               console.log('usuario logado');
               console.log(responseUsuario.data);
-              //Coloque aqui a rota para quem já está cadastrado
-              self.$router.push({ path: '/', force:true, reload:true });
+              if (responseUsuario.data && responseUsuario.data.id) {
+                self.$router.push({ path: '/', force:true, reload:true });  
+              } else {
+                self.$router.push({ path: 'cadastro', force:true, reload:true });
+              }
+
             }).catch(function (error) {
               console.log('nao existe usuario cadastrado', error)
               //Coloque aqui a sua rota de cadastro

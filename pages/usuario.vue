@@ -23,7 +23,7 @@
           <div class="title">Meu Cadastro</div>
           <div class="info mb-2">
             <div><strong>Email</strong></div>
-            <div>usuario@gmail.com</div>
+            <div>usuario4ok4pej3opfr</div>
           </div>
 
           <div class="info mb-2">
@@ -186,8 +186,13 @@ export default {
   async asyncData({ $axios }) {
     const figurinhas = await $axios.$get('/figurinhas/')
     const cadFigurinhas = await $axios.$get('/cadastro-fig/')
+    
     return { figurinhas, cadFigurinhas}
   },
+
+
+
+
   created() {
     var self = this;
 

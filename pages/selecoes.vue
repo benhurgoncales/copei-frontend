@@ -18,11 +18,11 @@
           <!-- COLUNA TIME-->
 
           <div class="column">
-        
+            <router-link :to="{ path: '/fig', query: { id: selecao.id } }">
             <figure class="image">
               <img :src="selecao.fotoTime" />
             </figure>
-         
+          </router-link>
 
           </div>
         </div>
