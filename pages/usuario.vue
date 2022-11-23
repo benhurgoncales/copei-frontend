@@ -19,6 +19,7 @@
           </div>
         </div>
         <br />
+        <!-- 
         <form class="box">
           <div class="title">Meu Cadastro</div>
           <div class="info mb-2">
@@ -85,6 +86,7 @@
 
           <button class="button is-primary">Editar</button>
         </form>
+        -->
 
         <form class="box">
           <div class="title">Figurinhas Cadastradas</div>
@@ -96,8 +98,10 @@
                   <img :src="cad.figurinha.fotoFig" alt="Placeholder image" />
                 </figure>
               </div>
+          
               <div class="media-content">
-                <p class="title is-4"> {{cad.figurinha.numero}} | {{cad.figurinha.nomeFig}} | R$ {{cad.preco}} <button class="button is-primary ml-6">Excluir</button></p>
+                <p class="title is-4"> {{cad.figurinha.numero}} | {{cad.figurinha.nomeFig}} | R$ {{cad.preco}}</p>
+                  <!-- <button class="button is-primary ml-6">Excluir</button>-->
               </div>
             </div>
           </div>
@@ -112,6 +116,7 @@
         <br />
         <form class="box">
           <div class="title">CADASTRAR FIGURINHA</div>
+          <!-- 
           <p><strong>Selecione a seleção</strong></p>
           <br>
           <div class="select is-primary">
@@ -124,6 +129,7 @@
             </select>
           </div>
           <br /><br />
+          -->
           <p><strong>Selecione o número da figurinha</strong></p>
           <br>
           <div class="select is-primary">
@@ -159,7 +165,7 @@
           <br />
           <strong>Valor da figurinha em R$</strong>
           <br>
-          <input v-model='cadastroFig.preco' class="input" type="text" placeholder="R$ 00,00" />
+          <input v-model='cadastroFig.preco' class="input" type="text" placeholder="ex: 4.99 (utilize '.' para decimal)" />
           <br /><br />
           <button @click="cadastrar()" class="button is-primary">Adicionar figurinha</button>
         </form>
@@ -170,8 +176,11 @@
 </template>
 
 <script>
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 export default {
   data() {
+    
     return {
       cadastroFig: {
         condicao: '',

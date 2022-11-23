@@ -1,7 +1,7 @@
 <template>
     <section>
       <!-- TITULO -->
-      <h1 class="title is-1 mb-5 mt-5">Estadios</h1>
+      <h1 class="title is-1 mb-5 mt-5">Figurinhas Primeira Pagina</h1>
       
   
       <!-- COLUNAS -->
